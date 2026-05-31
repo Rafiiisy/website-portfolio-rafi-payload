@@ -1,0 +1,66 @@
+services:
+  # VPS / pre-built image + Traefik. Not started with `--profile local` (use `--profile production`).
+  payloadcms:
+    profiles: ["production"]
+    image: ${DOCKER_PAYLOADCMS_IMAGE}
+    restart: unless-stopped
+    volumes:
+      - ./uploads:/app/uploads
+      - ./.env:/app/.env
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - ./.env
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.routers.${DOCKER_PROJECT_NAME}-payloadcms.tls=true
+      - traefik.http.routers.${DOCKER_PROJECT_NAME}-payloadcms.tls.certresolver=letsencrypt
+      - traefik.http.routers.${DOCKER_PROJECT_NAME}-payloadcms.entrypoints=websecure
+      - traefik.http.routers.${DOCKER_PROJECT_NAME}-payloadcms.rule=${DOCKER_PAYLOADCMS_HOST}
+      - traefik.http.routers.${DOCKER_PROJECT_NAME}-payloadcms.middlewares=${DOCKER_PAYLOADCMS_REDIRECT}@file
+      - traefik.http.services.${DOCKER_PROJECT_NAME}-payloadcms.loadbalancer.server.port=3000
+    networks:
+      - proxy
+      - backend
+    depends_on:
+      - mongo
+
+  payloadcms-local:
+    profiles: ["local"]
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ./uploads:/app/uploads
+      - ./.env:/app/.env
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URI=mongodb://${DOCKER_MONGO_DB_USERNAME}:${DOCKER_MONGO_DB_PASSWORD}@mongo:27017/${DOCKER_MONGO_DB_NAME}?authSource=admin
+    env_file:
+      - ./.env
+    ports:
+      - 3000:3000
+    networks:
+      - backend
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:${DOCKER_MONGO_DB_VERSION}
+    restart: unless-stopped
+    volumes:
+      - ./mongo-data/data:/data/db
+      - ./mongo-data/init:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DOCKER_MONGO_DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DOCKER_MONGO_DB_PASSWORD}
+      MONGO_INITDB_DATABASE: ${DOCKER_MONGO_DB_NAME}
+    ports:
+      - 27017:27017
+
+networks:
+  proxy:
+    external: true
+  backend:

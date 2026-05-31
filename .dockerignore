@@ -1,0 +1,15 @@
+.git
+.github
+**/.DS_Store
+node_modules
+.next
+mongo-data
+uploads
+letsencrypt
+.env
+.env.*
+!.env.example
+npm-debug.log*
+test-cases
+*.md
+!README.md

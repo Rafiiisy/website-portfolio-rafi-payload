@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CMS Admin</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <h1>CMS Admin</h1>
+        <p>Load content files, edit pages, validate, and export JSON.</p>
+        <div class="controls">
+          <label>Load Site JSON <input id="siteFileInput" type="file" accept=".json" /></label>
+          <label>Load Page Files <input id="pagesFileInput" type="file" accept=".json" multiple /></label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Site</h2>
+        <label>Brand <input id="siteBrand" type="text" /></label>
+        <label>Footer Text <input id="siteFooterText" type="text" /></label>
+        <button id="exportSiteBtn" type="button">Export Site JSON</button>
+      </section>
+
+      <section class="panel">
+        <h2>Pages</h2>
+        <div class="row">
+          <select id="pageSelect"></select>
+          <button id="addPageBtn" type="button">Add Page</button>
+          <button id="deletePageBtn" type="button">Delete Page</button>
+        </div>
+        <label>Title <input id="pageTitle" type="text" /></label>
+        <label>Slug <input id="pageSlug" type="text" /></label>
+        <label>SEO Title <input id="seoTitle" type="text" /></label>
+        <label>SEO Description <textarea id="seoDescription"></textarea></label>
+        <label>Sections JSON <textarea id="sectionsJson" class="mono"></textarea></label>
+        <div class="row">
+          <button id="validateBtn" type="button">Validate Content</button>
+          <button id="exportPageBtn" type="button">Export Current Page JSON</button>
+        </div>
+        <pre id="status"></pre>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

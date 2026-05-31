@@ -1,0 +1,27 @@
+{
+  "id": "page-booking",
+  "title": "Booking",
+  "slug": "booking",
+  "seo": {
+    "title": "Book Free Salon Audit",
+    "description": "Apply for a free salon audit call."
+  },
+  "sections": [
+    {
+      "id": "booking-form-main",
+      "type": "booking-form",
+      "props": {
+        "eyebrow": "Book Free Salon Audit",
+        "title": "Let us map what is blocking your salon growth.",
+        "description": "Fill in the short form and we will contact you to schedule a 30-45 minute Zoom audit. No pressure, just clarity.",
+        "points": [
+          "Personalized review of numbers, structure, and bottlenecks",
+          "Actionable next steps tailored to your salon stage",
+          "For qualified salon owners with active teams"
+        ],
+        "buttonLabel": "Request Audit",
+        "responseMeta": "We reply within 1-2 business days."
+      }
+    }
+  ]
+}

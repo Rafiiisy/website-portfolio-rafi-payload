@@ -1,0 +1,45 @@
+# CI only — no SSH deploy. Reference: projects/project-salon-mastery_payload_v4
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Payload artifacts
+        run: npm run generate:types && npm run generate:importmap
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+        env:
+          # Stubs so Next/Payload config can load without a real DB in CI
+          DATABASE_URI: mongodb://127.0.0.1:27017/ci-build?authSource=admin
+          PAYLOAD_SECRET: ci-build-secret-ci-build-secret-ci-build
+          SITE_URL: http://localhost:3000

@@ -1,0 +1,9 @@
+.rich-text-lexical-custom h1,
+.rich-text-lexical-custom h2,
+.rich-text-lexical-custom h3,
+.rich-text-lexical-custom h4,
+.rich-text-lexical-custom h5,
+.rich-text-lexical-custom h6 {
+  font-size: 18px;
+  margin-block: 0.5em 0.4em;
+}

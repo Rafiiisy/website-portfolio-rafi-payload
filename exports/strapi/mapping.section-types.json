@@ -1,0 +1,12 @@
+{
+  "frontendToStrapi": {
+    "hero": "sections.hero",
+    "landing": "sections.landing",
+    "booking-form": "sections.booking-form"
+  },
+  "strapiToFrontend": {
+    "sections.hero": "hero",
+    "sections.landing": "landing",
+    "sections.booking-form": "booking-form"
+  }
+}

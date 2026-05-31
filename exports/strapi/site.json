@@ -1,0 +1,38 @@
+{
+  "brand": "Veronica.",
+  "nav": [
+    {
+      "href": "#results",
+      "label": "Results"
+    },
+    {
+      "href": "#process",
+      "label": "Process"
+    },
+    {
+      "href": "#about",
+      "label": "About"
+    },
+    {
+      "href": "#faq",
+      "label": "FAQ"
+    }
+  ],
+  "footer": {
+    "text": "Copyright 2026 Veronica Advisory. All rights reserved.",
+    "links": [
+      {
+        "href": "#",
+        "label": "Imprint"
+      },
+      {
+        "href": "#",
+        "label": "Privacy Policy"
+      },
+      {
+        "href": "#",
+        "label": "Terms"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+:root {
+  --color-black: #000000;
+  --color-hero-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-surface-70: rgba(10, 10, 10, 0.7);
+  --color-text: #d2d9d8;
+  --color-text-muted: #8a8580;
+  --color-text-subtle: rgba(210, 217, 216, 0.7);
+  --color-text-faint: rgba(210, 217, 216, 0.5);
+  --color-accent: #bf9b7a;
+  --color-accent-dark: #a67458;
+  --color-accent-light: #d9c3a9;
+
+  --border-subtle: rgba(210, 217, 216, 0.1);
+  --border-faint: rgba(210, 217, 216, 0.08);
+  --border-medium: rgba(210, 217, 216, 0.15);
+  --overlay-white-02: rgba(255, 255, 255, 0.02);
+
+  --gradient-accent: linear-gradient(
+    153deg,
+    rgb(217, 195, 169) 0%,
+    rgb(191, 155, 122) 50%,
+    rgb(166, 116, 88) 100%
+  );
+  --gradient-accent-alt: linear-gradient(
+    125deg,
+    rgb(217, 195, 169) 0%,
+    rgb(191, 155, 122) 50%,
+    rgb(166, 116, 88) 100%
+  );
+  --gradient-btn: linear-gradient(90deg, #bf9b7a 0%, #a67458 100%);
+  --gradient-icon: linear-gradient(135deg, rgba(191, 155, 122, 0.2) 0%, rgba(166, 116, 88, 0.2) 100%);
+  --gradient-avatar: linear-gradient(135deg, rgb(191, 155, 122) 0%, rgb(166, 116, 88) 100%);
+  --gradient-comparison: linear-gradient(
+    90deg,
+    rgb(42, 26, 18) 0%,
+    rgb(74, 47, 32) 22%,
+    rgb(115, 75, 52) 42%,
+    rgb(166, 116, 88) 62%,
+    rgb(191, 155, 122) 82%,
+    rgb(217, 195, 169) 100%
+  );
+  --gradient-hero-overlay: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    #000 100%
+  );
+  --gradient-hero-tint: linear-gradient(
+    148deg,
+    rgba(191, 155, 122, 0.3) 0%,
+    rgba(191, 155, 122, 0) 50%,
+    rgba(166, 116, 88, 0.3) 100%
+  );
+  --shadow-accent: 0 30px 80px -30px rgba(191, 155, 122, 0.35);
+  --shadow-glow: 0 0 70px rgba(191, 155, 122, 0.3);
+
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --max-w: 1536px;
+  --gutter: 48px;
+  --gutter-md: 24px;
+  --gutter-sm: 16px;
+  --gutter-lg: 192px;
+  --section-pad-y: 120px;
+  --section-pad-y-mobile: 72px;
+
+  --radius-card: 28px;
+  --radius-card-lg: 40px;
+  --radius-tag: 14px;
+  --radius-icon: 24px;
+  --radius-pill: 999px;
+
+  --nav-h: 58px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-base: 220ms var(--ease-out);
+}

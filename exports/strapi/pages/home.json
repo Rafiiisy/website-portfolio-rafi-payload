@@ -1,0 +1,132 @@
+{
+  "id": "page-home",
+  "title": "Home",
+  "slug": "home",
+  "seo": {
+    "title": "Salon Mastery Home",
+    "description": "Salon business advisory for owners ready to lead, structure, and scale."
+  },
+  "sections": [
+    {
+      "id": "hero-home",
+      "type": "hero",
+      "props": {
+        "eyebrow": "For Salon Owners . EUR25k-EUR60k/month",
+        "title": "From an \"I-do-everything-myself\" salon to a structured, profitable business in 3-6 months.",
+        "subtitle": "For salon owners who want more profit, less chair time, and a team that runs without them.",
+        "bullets": [
+          "+10-30% more profit with clear numbers",
+          "5-15 fewer hours per week in operations",
+          "A team that works independently",
+          "Structured systems instead of chaos"
+        ],
+        "ctaLabel": "Book Free Salon Audit",
+        "ctaHref": "#booking",
+        "ctaMeta": "30-45 min via Zoom . Limited to qualified salon owners",
+        "trustLine": "120+ salon owners transformed",
+        "imageUrl": "https://www.figma.com/api/mcp/asset/77b88947-e6c7-41a2-8da4-18d1af4d8a86",
+        "imageAlt": "Veronica portrait",
+        "featuredInLabel": "Featured in",
+        "featuredInValue": "Vogue Business",
+        "statValue": "+27%",
+        "statText": "Average profit increase within 6 months",
+        "logos": [
+          "VOGUE BUSINESS",
+          "SALON TODAY",
+          "ESTETICA",
+          "MODERN SALON",
+          "BUSINESS OF BEAUTY",
+          "VOGUE BUSINESS"
+        ]
+      }
+    },
+    {
+      "id": "landing-home",
+      "type": "landing",
+      "props": {
+        "caseImageUrl": "https://www.figma.com/api/mcp/asset/27704beb-e078-4b1b-8707-26fc9ab04eda",
+        "painPoints": [
+          {
+            "id": "01",
+            "title": "Everything depends on you",
+            "body": "You are the operator, marketer, trainer, and closer. The salon does not run, you run it."
+          },
+          {
+            "id": "02",
+            "title": "No clarity on numbers",
+            "body": "Revenue moves through the salon, but margins and profit per service stay foggy."
+          },
+          {
+            "id": "03",
+            "title": "Your team waits for direction",
+            "body": "Capable people hover until you tell them what to do next."
+          },
+          {
+            "id": "04",
+            "title": "Revenue is up, profit feels unclear",
+            "body": "Months look strong on paper, but effort and final profit do not match."
+          },
+          {
+            "id": "05",
+            "title": "Always busy, rarely building",
+            "body": "Days disappear into appointments, fires, and admin."
+          },
+          {
+            "id": "06",
+            "title": "The business cannot run without you",
+            "body": "A real holiday feels impossible and critical decisions loop back to you."
+          }
+        ],
+        "methodSteps": [
+          {
+            "id": "01",
+            "title": "Clarity over numbers",
+            "body": "Create a clear picture of revenue, costs, profit, and where the salon is leaking money."
+          },
+          {
+            "id": "02",
+            "title": "Pricing and profit structure",
+            "body": "Adjust pricing, service structure, and profitability so the business becomes healthier."
+          },
+          {
+            "id": "03",
+            "title": "Salon structure",
+            "body": "Build clear roles, responsibilities, and systems so everything no longer depends on the owner."
+          },
+          {
+            "id": "04",
+            "title": "Digital back office",
+            "body": "Organize the salon's operations with simple digital tools and workflows."
+          },
+          {
+            "id": "05",
+            "title": "Team ownership",
+            "body": "Train the team to think, act, and take responsibility without waiting for direction."
+          },
+          {
+            "id": "06",
+            "title": "Real implementation",
+            "body": "Apply the system step by step inside the salon, not only in theory."
+          }
+        ],
+        "outcomes": [
+          "More profit",
+          "Less chair time",
+          "Independent team",
+          "Clear systems",
+          "Better decisions",
+          "Business freedom"
+        ],
+        "faqs": [
+          "How long does it take?",
+          "Does this work for small teams?",
+          "How much time do I need?",
+          "Is this coaching or done-for-you?",
+          "What happens during the Free Salon Audit?",
+          "Do I need to have clear numbers already?",
+          "What if my salon is profitable but still depends on me?"
+        ]
+      }
+    }
+  ]
+}

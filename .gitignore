@@ -1,0 +1,9 @@
+node_modules
+.next
+tsconfig.tsbuildinfo
+.env
+mongo-data/data
+uploads/media/*
+!uploads/media/.gitkeep
+npm-debug.log*
+letsencrypt/

@@ -1,0 +1,48 @@
+# Build and push production image to GHCR on push to main.
+# VPS deploy: pull only — see DEPLOY.md (no `docker compose build` on the server).
+
+name: Docker publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: docker-publish-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Image tag (GHCR requires lowercase)
+        id: image
+        run: |
+          repo="${GITHUB_REPOSITORY,,}"
+          echo "tag=ghcr.io/${repo}:main" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.image.outputs.tag }}
+          build-args: |
+            DATABASE_URI=mongodb://127.0.0.1:27017/ci-build?authSource=admin
+            PAYLOAD_SECRET=ci-build-secret-ci-build-secret-ci-build
+            SITE_URL=http://localhost:3000
