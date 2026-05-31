@@ -267,6 +267,8 @@ export interface Page {
         subtitle: string;
         cta: string;
         ctaHref: string;
+        cvLabel?: string | null;
+        cvHref?: string | null;
         copyright: string;
         links: {
           label: string;
@@ -558,6 +560,8 @@ export interface PagesSelect<T extends boolean = true> {
               subtitle?: T;
               cta?: T;
               ctaHref?: T;
+              cvLabel?: T;
+              cvHref?: T;
               copyright?: T;
               links?:
                 | T

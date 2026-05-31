@@ -162,6 +162,8 @@ type ContactData = {
   subtitle?: string | null;
   cta?: string | null;
   ctaHref?: string | null;
+  cvLabel?: string | null;
+  cvHref?: string | null;
   copyright?: string | null;
   links?: LinkItem[] | null;
 };
@@ -187,10 +189,24 @@ export function PortfolioContactSection({ data }: { data: ContactData }) {
 
           <p className="contact__subtitle">{data.subtitle}</p>
 
-          <a href={data.ctaHref || "#"} className="contact__cta">
-            <Icon name="mail" size={20} />
-            {data.cta}
-          </a>
+          <div className="contact__actions">
+            <a href={data.ctaHref || "#"} className="contact__cta">
+              <Icon name="mail" size={20} />
+              {data.cta}
+            </a>
+
+            {data.cvHref ? (
+              <a
+                href={data.cvHref}
+                className="contact__cta contact__cta--secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name="document" size={20} />
+                {data.cvLabel || "CV"}
+              </a>
+            ) : null}
+          </div>
 
           <div className="contact__links">
             {(data.links || []).map((link) => (

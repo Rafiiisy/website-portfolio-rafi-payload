@@ -10,6 +10,7 @@ type IconName =
   | "arrowRight"
   | "arrowDown"
   | "external"
+  | "document"
   | "quote"
   | "spark"
   | "brain"
@@ -62,6 +63,12 @@ const icons: Record<IconName, React.ReactNode> = {
   external: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M7 17L17 7M7 7h10v10" />
+    </svg>
+  ),
+  document: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" />
+      <path d="M14 2v6h6M9 13h6M9 17h6M9 9h1" />
     </svg>
   ),
   quote: (

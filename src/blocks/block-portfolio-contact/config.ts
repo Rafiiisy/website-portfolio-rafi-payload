@@ -14,6 +14,8 @@ export const blockPortfolioContactConfig: Block = {
     { name: "subtitle", type: "textarea", required: true },
     { name: "cta", type: "text", required: true },
     { name: "ctaHref", type: "text", required: true },
+    { name: "cvLabel", type: "text", defaultValue: "CV" },
+    { name: "cvHref", type: "text" },
     { name: "copyright", type: "text", required: true },
     {
       name: "links",

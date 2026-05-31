@@ -578,6 +578,8 @@ export function buildHomepageLayout(portraitId: string) {
         "Whether you're scaling a startup or transforming an enterprise, I'd love to hear what you're building.",
       cta: "Contact Me",
       ctaHref: "mailto:hello@rafisyafrinaldi.com",
+      cvLabel: "CV",
+      cvHref: "/cv-muhammad-rafi-syafrinaldi-202602.pdf",
       copyright: SEED_FOOTER.copyright,
       links: [
         { label: "hello@rafisyafrinaldi.com", href: "mailto:hello@rafisyafrinaldi.com", icon: "mail" },
