@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Rafi Syafrinaldi">
+  <circle cx="90" cy="90" r="90" fill="#B38869"/>
+  <text
+    x="90"
+    y="93"
+    fill="#FFFFFF"
+    font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="102"
+    font-weight="700"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >R</text>
+</svg>

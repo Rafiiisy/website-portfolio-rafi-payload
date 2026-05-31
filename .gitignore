@@ -2,7 +2,7 @@ node_modules
 .next
 tsconfig.tsbuildinfo
 .env
-mongo-data/data
+mongo-data/
 uploads/media/*
 !uploads/media/.gitkeep
 npm-debug.log*

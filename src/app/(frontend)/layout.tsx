@@ -6,9 +6,17 @@ import { getPayloadGlobal } from "@/utilities/get-payload-global";
 import "../../../styles/tokens.css";
 import "../../../styles/global.css";
 
+import type { Metadata } from "next";
 import type React from "react";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
+  },
+};
 
 const inter = Inter({
   subsets: ["latin"],
