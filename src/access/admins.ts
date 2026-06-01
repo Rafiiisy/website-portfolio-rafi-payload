@@ -1,6 +1,5 @@
+import { hasAdminRole, resolveUserRoles } from "@/access/resolve-user-roles";
+
 import type { Access } from "payload";
 
-export const admins: Access = ({ req }) => {
-  const roles = req.user?.roles;
-  return Array.isArray(roles) && roles.includes("admin");
-};
+export const admins: Access = async ({ req }) => hasAdminRole(await resolveUserRoles(req));

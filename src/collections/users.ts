@@ -1,5 +1,6 @@
 import { admins } from "@/access/admins";
 import { editors } from "@/access/editors";
+import { hasAdminRole, hasEditorRole, resolveUserRoles } from "@/access/resolve-user-roles";
 
 import type { CollectionConfig } from "payload";
 
@@ -13,15 +14,9 @@ export const Users: CollectionConfig = {
   access: {
     create: admins,
     read: editors,
-    update: ({ req }) => {
-      const roles = req.user?.roles;
-      return Array.isArray(roles) && roles.includes("admin");
-    },
+    update: async ({ req }) => hasAdminRole(await resolveUserRoles(req)),
     delete: admins,
-    admin: ({ req }) => {
-      const roles = req.user?.roles;
-      return Array.isArray(roles) && (roles.includes("admin") || roles.includes("editor"));
-    },
+    admin: async ({ req }) => hasEditorRole(await resolveUserRoles(req)),
   },
   fields: [
     {
