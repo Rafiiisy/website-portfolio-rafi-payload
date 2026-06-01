@@ -8,7 +8,8 @@ services:
       - ./.env:/app/.env
     environment:
       NODE_ENV: production
-      DATABASE_URI: mongodb://${DOCKER_MONGO_DB_USERNAME}:${DOCKER_MONGO_DB_PASSWORD}@mongo:27017/${DOCKER_MONGO_DB_NAME}?authSource=admin
+      DATABASE_URI: ${DATABASE_URI}
+      # DATABASE_URI: mongodb://${DOCKER_MONGO_DB_USERNAME}:${DOCKER_MONGO_DB_PASSWORD}@mongo:27017/${DOCKER_MONGO_DB_NAME}?authSource=adminadmin
     env_file:
       - ./.env
     labels:
