@@ -15,8 +15,42 @@ import { Settings } from "@/globals/settings";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
+function resolveSiteURL(): string {
+  const explicit = process.env.SITE_URL?.trim();
+  if (explicit) {
+    return explicit.replace(/\/$/, "");
+  }
+
+  const railwayDomain = process.env.RAILWAY_PUBLIC_DOMAIN?.trim();
+  if (railwayDomain) {
+    const withProtocol = railwayDomain.startsWith("http")
+      ? railwayDomain
+      : `https://${railwayDomain}`;
+    return withProtocol.replace(/\/$/, "");
+  }
+
+  return "http://localhost:3000";
+}
+
+function trustedOrigins(siteURL: string): string[] {
+  const origins = new Set<string>([siteURL]);
+
+  for (const origin of (process.env.PAYLOAD_CORS_ORIGINS || "").split(",")) {
+    const trimmed = origin.trim().replace(/\/$/, "");
+    if (trimmed) {
+      origins.add(trimmed);
+    }
+  }
+
+  return [...origins];
+}
+
+const siteURL = resolveSiteURL();
+
 export default buildConfig({
-  serverURL: process.env.SITE_URL,
+  serverURL: siteURL,
+  cors: trustedOrigins(siteURL),
+  csrf: trustedOrigins(siteURL),
   admin: {
     avatar: "default",
     importMap: {

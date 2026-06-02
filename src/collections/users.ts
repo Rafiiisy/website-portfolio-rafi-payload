@@ -1,6 +1,7 @@
 import { admins } from "@/access/admins";
+import { isAdminPanelUser } from "@/access/authenticated-admin";
 import { editors } from "@/access/editors";
-import { hasAdminRole, hasEditorRole, resolveUserRoles } from "@/access/resolve-user-roles";
+import { hasAdminRole, resolveUserRoles } from "@/access/resolve-user-roles";
 
 import type { CollectionConfig } from "payload";
 
@@ -10,13 +11,47 @@ export const Users: CollectionConfig = {
     useAsTitle: "email",
     defaultColumns: ["email", "roles", "createdAt", "updatedAt"],
   },
-  auth: true,
+  auth: {
+    cookies: {
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Lax",
+    },
+  },
   access: {
     create: admins,
-    read: editors,
-    update: async ({ req }) => hasAdminRole(await resolveUserRoles(req)),
+    read: async ({ req, id }) => {
+      if (!req.user) {
+        return false;
+      }
+
+      if (id && String(req.user.id) === String(id)) {
+        return true;
+      }
+
+      if (!isAdminPanelUser(req)) {
+        return false;
+      }
+
+      return true;
+    },
+    update: async ({ req, id }) => {
+      if (!isAdminPanelUser(req)) {
+        return false;
+      }
+
+      const roles = await resolveUserRoles(req);
+      if (hasAdminRole(roles)) {
+        return true;
+      }
+
+      if (id && String(req.user!.id) === String(id)) {
+        return true;
+      }
+
+      return true;
+    },
     delete: admins,
-    admin: async ({ req }) => hasEditorRole(await resolveUserRoles(req)),
+    admin: ({ req }) => isAdminPanelUser(req),
   },
   fields: [
     {
@@ -24,6 +59,7 @@ export const Users: CollectionConfig = {
       type: "select",
       required: true,
       hasMany: true,
+      saveToJWT: true,
       defaultValue: ["admin"],
       options: [
         { label: "Admin", value: "admin" },

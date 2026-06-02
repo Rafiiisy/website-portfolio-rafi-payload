@@ -81,6 +81,7 @@ export const Pages: CollectionConfig = {
                 collection: collectionSlug,
                 where: { isHomepage: { equals: true } },
                 data: { isHomepage: false },
+                overrideAccess: true,
               });
             }
 
